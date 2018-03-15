@@ -10,7 +10,7 @@ For our senior design capstone project, we will build an image classifier on top
 ### More Dependencies
 For now, this repository only supports Python 2
 
-- If you are working on the fetch robot in the OSU Robotics department, make sure you have access and can connect to the hidden robotics wifi network.
+If you are working on the fetch robot in the OSU Robotics department, make sure you have access and can connect to the hidden robotics wifi network.
 
 Install ROS Indigo for Ubuntu 14.04LTS
 
@@ -69,7 +69,7 @@ ON LOCAL COMPUTER SIDE
 ```
 SWITCH BACK TO ROBOT SIDE WINDOW 
 
-8. Edit the launch file to tell it to read from these map files 
+8. Edit the launch file to tell it to read from these newly added map files 
 ```
 	vim catkin_ws/src/lifelong_object_learning/launch/startup.launch
 ```
