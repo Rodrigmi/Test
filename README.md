@@ -40,42 +40,43 @@ Install the necessary ROS fetch packages to your local computer
 
 ### Make new map
 
-ON ROBOT SIDE <br />
+ON ROBOT SIDE 
 
-1. ssh into  robot and source workspace <br />
+1. ssh into  robot and source workspace
 ```
 	ssh username@bandit.engr.oregonstate.edu
 	source catkin_ws/devel/setup.bash
 ```
-2. Start creating map of room by running the command below and then driving the robot around room to scan <br />
+2. Start creating map of room by running the command below and then driving the robot around room to scan 
 ```	
 	rosrun gmapping slam_gmapping scan:=base_scan _odom_frame:=odom
 ```
-ON LOCAL COMPUTER SIDE <br />
+ON LOCAL COMPUTER SIDE 
 
-3. Once the entire room is scanned, save map with: <br />
+3. Once the entire room is scanned, save map with: 
 ```	
 	rosrun map_server map_saver -f <map_name>
 ```
-4. Save another copy to make the keepout file <br />
+4. Save another copy to make the keepout file 
 ```
 	rosrun map_server map_saver -f <map_name_keepout>
 ```
-5. Edit the map_name_keepout.pgm with an image editor to add black lines to indicate which sections of the map the robot should be staying out of. You can look at ours in results/setup/graf_HRI_keepout.pgm to get an idea of what it can look like. <br />
+5. Edit the map_name_keepout.pgm with an image editor to add black lines to indicate which sections of the map the robot should be staying out of. You can look at ours in results/setup/graf_HRI_keepout.pgm to get an idea of what it can look like.
 
-7. Add .yaml and .pgm of both maps (4 files total) to the robot under lifelong_object_learning/mapping <br />
+7. Add .yaml and .pgm of both maps (4 files total) to the robot under lifelong_object_learning/mapping 
 ```	
 	scp map_name.ext username@bandit.engr.oregonstate.edu:/home/user/catkin_ws/src/lifelong_object_learning/mapping/
 ```
-SWITCH BACK TO ROBOT SIDE WINDOW <br />
+SWITCH BACK TO ROBOT SIDE WINDOW 
 
-8. Edit the launch file to tell it to read from these map files <br />
+8. Edit the launch file to tell it to read from these map files 
 ```
 	vim catkin_ws/src/lifelong_object_learning/launch/startup.launch
 ```
+
 ### Run capture_data.py 
 
-ON ROBOT SIDE <br />
+ON ROBOT SIDE
 
 1. Open new terminal window to ssh into robot and source workspace
 ```
