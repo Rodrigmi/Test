@@ -78,7 +78,7 @@ SWITCH BACK TO ROBOT SIDE WINDOW <br />
 ON ROBOT SIDE <br />
 
 1. Open new terminal window to ssh into robot and source workspace
-```	
+```
 	ssh username@bandit.engr.oregonstate.edu
 	source catkin_ws/devel/setup.bash
 ```
@@ -101,14 +101,13 @@ ON ROBOT SIDE
 5. Repeat Step 1
 
 6. Update class name and instance. Also update starting image index if necessary.  
-```	
+
 	vim catkin_ws/src/lifelong_object_learning/src/data_capture/capture_data.py
-```
+
 7. Register Points in point cloud by clicking "register point" in top right of RVIZ GUI and put 4 points around the object.
 
 8. Add marker to visualization by clicking add in bottom left of RVIZ GUI and look for /object_point_marker. Once added, you should see a blue dot appear where you clicked in RVIZ.
 
 9. Run capture_data.py to start data capturing process
-```
-	rosrun lifelong_learning capture_data.py    
-```
+
+rosrun lifelong_learning capture_data.py    
