@@ -36,7 +36,7 @@ Install the necessary ROS fetch packages to your local computer
 	sudo apt-cache search fetch
 	sudo apt-get install ros-indigo-fetch-description
 
-###To Run Data Capture
+### To Run Data Capture
 
 ### Make new map
 
