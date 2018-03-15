@@ -43,71 +43,72 @@ Install the necessary ROS fetch packages to your local computer
 ON ROBOT SIDE <br />
 
 1. ssh into  robot and source workspace <br />
-'''	
+```
 	ssh username@bandit.engr.oregonstate.edu
 	source catkin_ws/devel/setup.bash
-'''
+```
 2. Start creating map of room by running the command below and then driving the robot around room to scan <br />
-	
+```	
 	rosrun gmapping slam_gmapping scan:=base_scan _odom_frame:=odom
-
+```
 ON LOCAL COMPUTER SIDE <br />
 
 3. Once the entire room is scanned, save map with: <br />
-	
+```	
 	rosrun map_server map_saver -f <map_name>
-
+```
 4. Save another copy to make the keepout file <br />
-
+```
 	rosrun map_server map_saver -f <map_name_keepout>
-
+```
 5. Edit the map_name_keepout.pgm with an image editor to add black lines to indicate which sections of the map the robot should be staying out of. You can look at ours in results/setup/graf_HRI_keepout.pgm to get an idea of what it can look like. <br />
 
 7. Add .yaml and .pgm of both maps (4 files total) to the robot under lifelong_object_learning/mapping <br />
-	
+```	
 	scp map_name.ext username@bandit.engr.oregonstate.edu:/home/user/catkin_ws/src/lifelong_object_learning/mapping/
-
+```
 SWITCH BACK TO ROBOT SIDE WINDOW <br />
 
 8. Edit the launch file to tell it to read from these map files <br />
-
+```
 	vim catkin_ws/src/lifelong_object_learning/launch/startup.launch
-
+```
 ### Run capture_data.py 
 
 ON ROBOT SIDE <br />
 
 1. Open new terminal window to ssh into robot and source workspace
-	
+```	
 	ssh username@bandit.engr.oregonstate.edu
 	source catkin_ws/devel/setup.bash
-
+```
 2. Launch the startup launch file 
-
+```
 	roslaunch lifelong_object_learning startup.launch
-
+```
 ON LOCAL COMPUTER SIDE
 
 3. Open new terminal window and run the command below to make sure you are talking to Fetch on robotics network
-
+```
 	rostopic echo base_scan
-
+```
 4. Copy the fetch.rviz file from results/setup/fetch.rviz to your current working directory and then run the following command:
-
+```
 	rosrun rviz rviz -d fetch.rviz
-
+```
 ON ROBOT SIDE
 
 5. Repeat Step 1
 
 6. Update class name and instance. Also update starting image index if necessary.  
-	
+```	
 	vim catkin_ws/src/lifelong_object_learning/src/data_capture/capture_data.py
-
+```
 7. Register Points in point cloud by clicking "register point" in top right of RVIZ GUI and put 4 points around the object.
 
 8. Add marker to visualization by clicking add in bottom left of RVIZ GUI and look for /object_point_marker. Once added, you should see a blue dot appear where you clicked in RVIZ.
 
 9. Run capture_data.py to start data capturing process
-	
+```
 	rosrun lifelong_learning capture_data.py    
+```
