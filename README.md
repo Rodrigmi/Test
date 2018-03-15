@@ -36,17 +36,17 @@ Install the necessary ROS fetch packages to your local computer
 	sudo apt-cache search fetch
 	sudo apt-get install ros-indigo-fetch-description
 
-### To Run Data Capture
+## To Run Data Capture
 
 ### Make new map
 
 ON ROBOT SIDE <br />
 
 1. ssh into  robot and source workspace <br />
-	
+'''	
 	ssh username@bandit.engr.oregonstate.edu
 	source catkin_ws/devel/setup.bash
-
+'''
 2. Start creating map of room by running the command below and then driving the robot around room to scan <br />
 	
 	rosrun gmapping slam_gmapping scan:=base_scan _odom_frame:=odom
